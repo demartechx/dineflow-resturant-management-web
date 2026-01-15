@@ -1,59 +1,123 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# DineFlow 🍽️
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+**DineFlow** is a modern, QR-based restaurant management system designed to streamline the ordering process. It bridges the gap between customers and the kitchen with a premium, mobile-first frontend and a powerful administration panel.
 
-## About Laravel
+![DineFlow Banner](https://placehold.co/1200x400/ea580c/ffffff?text=DineFlow+Restaurant+System)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## ✨ Key Features
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### 📱 Customer Frontend
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+-   **QR Code Ordering**: Customers scan a table-specific QR code (e.g., `/table/1`) to start ordering.
+-   **Deep Design UI**: A visually stunning, mobile-optimized interface featuring glassmorphism, smooth gradients, and deep shadows.
+-   **Interactive Menu**:
+    -   Real-time search functionality.
+    -   Sticky category navigation (e.g., Rice, Drinks).
+    -   Instant filtering without page reloads.
+-   **Cart System**: Seamless add-to-cart experience with quantity management.
+-   **Checkout**: Simple checkout process supporting Bank Transfer and Cash methods.
+-   **Order Tracking**: Real-time status updates for customers to track their food preparation.
 
-## Learning Laravel
+### 🛠 Admin Backend (FilamentPHP)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+-   **Dashboard**: At-a-glance visualization of Total Orders, Pending Orders, and Revenue.
+-   **Order Management**: View, update, and process orders (Pending → Preparation → Served → Paid).
+-   **Menu Management**: tailored management for Products, Categories, and Ingredients.
+-   **Table Management**: Generate and manage restaurant tables.
+-   **Currency Support**: Localized for Nigerian Naira (₦).
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 🚀 Tech Stack
 
-## Laravel Sponsors
+-   **Framework**: [Laravel 11](https://laravel.com)
+-   **Frontend**: [Livewire 3](https://livewire.laravel.com), [Alpine.js](https://alpinejs.dev), [TailwindCSS](https://tailwindcss.com)
+-   **Admin Panel**: [FilamentPHP v3](https://filamentphp.com)
+-   **Database**: MySQL / SQLite
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## 🛠️ Installation
 
-### Premium Partners
+### Prerequisites
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+-   PHP 8.2+
+-   Composer
+-   Node.js & NPM
 
-## Contributing
+### Steps
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+1.  **Clone the Repository**
 
-## Code of Conduct
+    ```bash
+    git clone https://github.com/demartechx/dineflow-resturant-management-web.git
+    cd dineflow
+    ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+2.  **Install PHP Dependencies**
 
-## Security Vulnerabilities
+    ```bash
+    composer install
+    ```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+3.  **Install Frontend Dependencies**
 
-## License
+    ```bash
+    npm install
+    ```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+4.  **Environment Setup**
+
+    ```bash
+    cp .env.example .env
+    php artisan key:generate
+    ```
+
+    _Configure your database settings in the `.env` file._
+
+5.  **Database Migration & Seeding**
+
+    ```bash
+    php artisan migrate --seed
+    ```
+
+    _This will create the default admin user and sample menu items._
+
+6.  **Create Storage Link**
+
+    ```bash
+    php artisan storage:link
+    ```
+
+7.  **Build Assets**
+
+    ```bash
+    npm run build
+    ```
+
+8.  **Run the Application**
+    ```bash
+    php artisan serve
+    ```
+
+## 📖 Usage Guide
+
+### Customer Flow
+
+1.  Visit `/table/1` (simulating a QR scan for Table #1).
+2.  Browse the menu, filter by category, or search for items.
+3.  Add items to your cart.
+4.  Proceed to checkout and select your payment method.
+5.  Track your order status on the tracking page.
+
+### Admin Access
+
+1.  Visit `/admin`.
+2.  Login with the default credentials (seeded):
+    -   **Email**: `admin@dineflow.com` (or check database seeder)
+    -   **Password**: `password`
+3.  Manage incoming orders from the "Latest Orders" widget or the Orders resource.
+
+## 🤝 Contributing
+
+Contributions are welcome! Please fork the repository and submit a pull request for any improvements.
+
+## 📄 License
+
+This project is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
